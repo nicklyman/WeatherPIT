@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.epicodus.weatherpit.ui.AboutAppActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView"
+        android:background="@drawable/background"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About Weather P.I.T."
+        android:id="@+id/titleTextView"
+        android:layout_marginTop="40dp"
+        android:textSize="35sp"
+        android:textColor="@color/colorMatchImage"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Weather P.I.T (Point In Time) is designed to give you access to the current weather, but also present you with random forecasts for the past. Using the Dark Sky API, I used a random number generating method to calculate which year to append to the date, so each time the app is refreshed, there is a good chance that the historic forecast you see will be different. Also included is a seven day forecast with the daily summary. If you select a date from the seven day forecast list, more detailed information is displayed. I hope you enjoy seeing how the random historic forecast for the chosen city compares to the current weather forecast!"
+        android:background="@drawable/border_style"
+        android:padding="10dp"
+        android:id="@+id/aboutAppTextView"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorUserInputText"
+        android:text="About Dark Sky Forecast API"
+        android:id="@+id/githubLinkTextView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="0.33" />
+
+</RelativeLayout>

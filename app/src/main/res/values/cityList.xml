@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cityList">
+        <item>New York, New York</item>
+        <item>Los Angeles, California</item>
+        <item>Chicago, Illinois</item>
+        <item>Houston, Texas</item>
+        <item>Philadelphia, Pennsylvania</item>
+        <item>Phoenix, Arizona</item>
+        <item>San Antonio, Texas</item>
+        <item>San Diego, California</item>
+        <item>Dallas, Texas</item>
+        <item>San Jose, California</item>
+        <item>Austin, Texas</item>
+        <item>Indianapolis, Indiana</item>
+        <item>Jacksonville, Florida</item>
+        <item>San Francisco, California</item>
+        <item>Columbus, Ohio</item>
+        <item>Charlotte, North Carolina</item>
+        <item>Fort Worth, Texas</item>
+        <item>Detroit, Michigan</item>
+        <item>El Paso, Texas</item>
+        <item>Memphis, Tennessee</item>
+        <item>Seattle, Washington</item>
+        <item>Denver, Colorado</item>
+        <item>Washington DC</item>
+        <item>Boston, Massachusetts</item>
+        <item>Nashville, Tennessee</item>
+        <item>Baltimore, Maryland</item>
+        <item>Oklahoma City, Oklahoma</item>
+        <item>Louisville, Kentucky</item>
+        <item>Portland, Oregon</item>
+        <item>Las Vegas, Nevada</item>
+    </string-array>
+</resources>

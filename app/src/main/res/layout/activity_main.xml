@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.epicodus.weatherpit.ui.MainActivity">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView"
+        android:background="@drawable/background"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weather"
+        android:id="@+id/titleTextView"
+        android:textSize="60sp"
+        android:textColor="@color/colorMatchImage"
+        android:textStyle="bold"
+        android:layout_below="@+id/aboutAppButton"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:id="@+id/pointTextView"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTextView"
+        android:gravity="center"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="P"
+            android:id="@+id/titleTextView2"
+            android:layout_marginTop="1dp"
+            android:textSize="60sp"
+            android:textColor="@color/colorMatchImage"
+            android:textStyle="bold"
+            android:layout_below="@+id/titleTextView"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="oint"
+            android:id="@+id/titleTextView2b"
+            android:textSize="30sp"
+            android:textColor="@color/colorMatchImage"
+            android:textStyle="bold"
+            android:textIsSelectable="false"
+            android:layout_alignTop="@+id/titleTextView2"
+            android:layout_toRightOf="@+id/titleTextView2"
+            android:layout_toEndOf="@+id/titleTextView2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/inTextView"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pointTextView"
+        android:gravity="center"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I"
+            android:id="@+id/titleTextView3"
+            android:layout_marginTop="1dp"
+            android:textSize="60sp"
+            android:textColor="@color/colorMatchImage"
+            android:textStyle="bold"
+            android:layout_below="@+id/titleTextView2"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="n"
+            android:id="@+id/titleTextView3b"
+            android:textSize="30sp"
+            android:textColor="@color/colorMatchImage"
+            android:textStyle="bold"
+            android:textIsSelectable="false"
+            android:layout_alignTop="@+id/titleTextView3"
+            android:layout_toRightOf="@+id/titleTextView3"
+            android:layout_toEndOf="@+id/titleTextView3" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/timeTextView"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/inTextView"
+        android:gravity="center"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="T"
+            android:id="@+id/titleTextView4"
+            android:layout_marginTop="1dp"
+            android:textSize="60sp"
+            android:textColor="@color/colorMatchImage"
+            android:textStyle="bold"
+            android:layout_below="@+id/titleTextView3"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ime"
+            android:id="@+id/titleTextView4b"
+            android:textSize="30sp"
+            android:textColor="@color/colorMatchImage"
+            android:textStyle="bold"
+            android:textIsSelectable="false"
+            android:layout_alignTop="@+id/titleTextView4"
+            android:layout_toRightOf="@+id/titleTextView4"
+            android:layout_toEndOf="@+id/titleTextView4" />
+    </LinearLayout>
+
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Weather Forecast"
+        android:textColor="@color/colorTextIcons"
+        android:id="@+id/getWeatherButton"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About"
+        android:id="@+id/aboutAppButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/locationEditTextView"
+        android:layout_marginBottom="30dp"
+        android:textAlignment="center"
+        android:textColor="@color/colorUserInputText"
+        android:textColorHint="@color/colorUserInputText"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:hint="Enter location here"
+        android:layout_above="@+id/getWeatherButton"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

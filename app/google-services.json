@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "284238048066",
+    "firebase_url": "https://weatherpit-ddbdc.firebaseio.com",
+    "project_id": "weatherpit-ddbdc",
+    "storage_bucket": "weatherpit-ddbdc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284238048066:android:1a65c09a4c7abf1f",
+        "android_client_info": {
+          "package_name": "com.epicodus.weatherpit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "284238048066-tvogmgm9c8c1hpv7c5jumt1ne0sc3foc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.epicodus.weatherpit",
+            "certificate_hash": "322091C7B2AF241B15DB07E8CF3D59EE112197F4"
+          }
+        },
+        {
+          "client_id": "284238048066-p3gimuf1ghohr7g36sim1bpnq4i4b08o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCv0aJdCXXncFEi_vaCYhTgC9u7CUcJx6M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "284238048066-p3gimuf1ghohr7g36sim1bpnq4i4b08o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
