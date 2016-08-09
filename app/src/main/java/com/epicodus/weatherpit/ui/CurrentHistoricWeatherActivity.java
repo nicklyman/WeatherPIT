@@ -92,6 +92,7 @@ public class CurrentHistoricWeatherActivity extends AppCompatActivity implements
 //        double lat = intent.getDoubleExtra("lat", 0.0);
 //        double lng = intent.getDoubleExtra("lng", 0.0);
         long randomYear = getRandomYear();
+        Log.v("year: ", String.valueOf(randomYear));
         Date date = new Date(randomYear * 1000L);
         SimpleDateFormat year = new SimpleDateFormat("yyyy");
         formattedYear = year.format(date);
@@ -105,9 +106,14 @@ public class CurrentHistoricWeatherActivity extends AppCompatActivity implements
     @Override
     public void onClick(View view) {
         if(view == mSevenDayForecastButton) {
+
+            //Need to pass LAT and LNG to next activity!!! Currently passing 0.0, 0.0
+
             Bundle coordinates = getIntent().getExtras();
             lat = coordinates.getDouble("lat");
+            Log.v("passedLat: ", String.valueOf(lat));
             lng = coordinates.getDouble("lng");
+            Log.v("passedLng: ", String.valueOf(lng));
             Intent intent = new Intent(CurrentHistoricWeatherActivity.this, SevenDayForecastActivity.class);
             intent.putExtra("lat", lat);
             intent.putExtra("lng", lng);
