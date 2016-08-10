@@ -143,7 +143,8 @@ public class CurrentHistoricWeatherActivity extends AppCompatActivity implements
                 CurrentHistoricWeatherActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mRandomYearTextView.setText(userLocation + ": " + formattedYear);
+                        mLocationTextView.setText("Location: " + userLocation);
+                        mRandomYearTextView.setText("Year: " + formattedYear);
 
                         if (mHistoricForecasts.get(0).getHistoricDailyIcon().equals("clear-day")){
                             Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.clear_day).into(mHistoricWeatherImageView);
