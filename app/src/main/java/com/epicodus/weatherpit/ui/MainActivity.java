@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 args.putParcelable("coordinates", newCoordinates);
                 Intent intent = new Intent(MainActivity.this, CurrentHistoricWeatherActivity.class);
                 intent.putExtras(args);
+                intent.putExtra("userLocation", newAddress);
                 startActivity(intent);
             }
         }

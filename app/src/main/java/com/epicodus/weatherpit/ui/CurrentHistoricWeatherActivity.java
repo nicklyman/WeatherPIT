@@ -63,7 +63,7 @@ public class CurrentHistoricWeatherActivity extends AppCompatActivity implements
     public double lng;
 
     private String formattedYear;
-    private String cityName;
+    private String userLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +73,7 @@ public class CurrentHistoricWeatherActivity extends AppCompatActivity implements
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, mHistoricForecasts);
 
         Intent intent = getIntent();
-        cityName = intent.getStringExtra("cityName");
+        userLocation = intent.getStringExtra("userLocation");
         LatLng inputPosition = intent.getParcelableExtra("coordinates");
 
         String stringXY = String.valueOf(inputPosition);
@@ -143,7 +143,7 @@ public class CurrentHistoricWeatherActivity extends AppCompatActivity implements
                 CurrentHistoricWeatherActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mRandomYearTextView.setText(cityName + ": " + formattedYear);
+                        mRandomYearTextView.setText(userLocation + ": " + formattedYear);
 
                         if (mHistoricForecasts.get(0).getHistoricDailyIcon().equals("clear-day")){
                             Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.clear_day).into(mHistoricWeatherImageView);
