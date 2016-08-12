@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -88,22 +89,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        String newAddress = mLocationEditTextView.getText().toString().trim();
+        String enteredLocation = mLocationEditTextView.getText().toString().trim();
 
         if (view == mGetWeatherButton) {
-            if (newAddress.equals("")) {
+            if (enteredLocation.equals("")) {
                 mLocationEditTextView.setError("Please enter a valid address");
             } else {
-                Log.v("Address: ", newAddress);
-                LatLng newCoordinates = getLocationFromAddress(newAddress);
-                Log.v("coords: ", newCoordinates.toString());
+                Log.v("Address: ", enteredLocation);
+                LatLng newCoordinates = getLocationFromAddress(enteredLocation);
+                Log.v("Coordinates: ", String.valueOf(newCoordinates));
+
+
+
+                String stringXY = String.valueOf(newCoordinates);
+                Log.v("xy: ", stringXY);
+
+                String coordinates = (stringXY.split("[\\(\\)]")[1]);
+                List<String> coordinateList = Arrays.asList(coordinates.split(","));
+                String latitude = coordinateList.get(0);
+                Log.v("lat: ", latitude);
+                String longitude = coordinateList.get(1);
+                Log.v("long: ", longitude);
+                double lat = Double.parseDouble(latitude);
+                double lng = Double.parseDouble(longitude);
+
 
 
                 Bundle args = new Bundle();
-                args.putParcelable("coordinates", newCoordinates);
+//                args.putParcelable("coordinates", newCoordinates);
                 Intent intent = new Intent(MainActivity.this, CurrentHistoricWeatherActivity.class);
-                intent.putExtras(args);
-                intent.putExtra("userLocation", newAddress);
+//                intent.putExtras(args);
+                intent.putExtra("userLocation", enteredLocation);
+                intent.putExtra("lat", lat);
+                intent.putExtra("lng", lng);
                 startActivity(intent);
             }
         }
