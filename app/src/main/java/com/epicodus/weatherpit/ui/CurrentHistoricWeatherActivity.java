@@ -61,9 +61,6 @@ public class CurrentHistoricWeatherActivity extends AppCompatActivity implements
 
     public double lat;
     public double lng;
-//    public LatLng coordinates = getIntent().getParcelableExtra("coordinates");
-    public LatLng coordinates;
-
 
     private String formattedYear;
     private String userLocation;
@@ -77,26 +74,15 @@ public class CurrentHistoricWeatherActivity extends AppCompatActivity implements
 
         Intent intent = getIntent();
         userLocation = intent.getStringExtra("userLocation");
-//        LatLng inputPosition = intent.getParcelableExtra("coordinates");
-
-//        String stringXY = String.valueOf(inputPosition);
-//        Log.v("xy: ", stringXY);
-//
-//        String coordinates = (stringXY.split("[\\(\\)]")[1]);
-//        List<String> coordinateList = Arrays.asList(coordinates.split(","));
-//        String latitude = coordinateList.get(0);
-//        Log.v("lat: ", latitude);
-//        String longitude = coordinateList.get(1);
-//        Log.v("long: ", longitude);
-//        double lat = Double.parseDouble(latitude);
-//        double lng = Double.parseDouble(longitude);
-
-
+        Log.v("Location: ", userLocation);
         double lat = intent.getDoubleExtra("lat", 0.0);
+        Log.v("Lat: ", String.valueOf(lat));
         double lng = intent.getDoubleExtra("lng", 0.0);
+        Log.v("lng: ", String.valueOf(lng));
         long randomYear = getRandomYear();
-        Log.v("year: ", String.valueOf(randomYear));
+        Log.v("unix: ", String.valueOf(randomYear));
         Date date = new Date(randomYear * 1000L);
+        Log.v("date: ", String.valueOf(date));
         SimpleDateFormat year = new SimpleDateFormat("yyyy");
         formattedYear = year.format(date);
 
@@ -110,18 +96,9 @@ public class CurrentHistoricWeatherActivity extends AppCompatActivity implements
     public void onClick(View view) {
         if(view == mSevenDayForecastButton) {
 
-            //Need to pass LAT and LNG to next activity!!! Currently passing 0.0, 0.0
-
-//            Bundle args = new Bundle();
-//            args.putParcelable("coordinates", coordinates);
-//            Intent intent = new Intent(CurrentHistoricWeatherActivity.this, SevenDayForecastActivity.class);
-//            intent.putExtras(args);
-
             Bundle coordinates = getIntent().getExtras();
             lat = coordinates.getDouble("lat");
-            Log.v("passedLat: ", String.valueOf(lat));
             lng = coordinates.getDouble("lng");
-            Log.v("passedLng: ", String.valueOf(lng));
             Intent intent = new Intent(CurrentHistoricWeatherActivity.this, SevenDayForecastActivity.class);
             intent.putExtra("lat", lat);
             intent.putExtra("lng", lng);
