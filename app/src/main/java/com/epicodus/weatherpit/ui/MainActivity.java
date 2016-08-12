@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAboutAppButton.setOnClickListener(this);
         };
 
-    //Get LatLng from user input
+    //Get LatLng from user input using geocoder
     public LatLng getLocationFromAddress(String strAddress) {
 
         Geocoder geoCoder = new Geocoder(MainActivity.this, Locale.getDefault());
@@ -94,11 +94,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } else {
                 LatLng newCoordinates = getLocationFromAddress(enteredLocation);
                 if(newCoordinates == null) {
-                    mLocationEditTextView.setError("Couldn't find coordinates for this address, try a different address");
+                    mLocationEditTextView.setError("Couldn't find coordinates for this address, please try a different address");
                     return;
                 }
 
-                //Convert LatLng object to doubles for correctly passing as intents to multiple activities
+                //Convert LatLng object to doubles for correctly passing coordinates as intents to multiple activities
                 String stringXY = String.valueOf(newCoordinates);
 
                 String coordinates = (stringXY.split("[\\(\\)]")[1]);

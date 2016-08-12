@@ -54,6 +54,7 @@ public class HistoricForecastService {
                 double lng = historicForecastServiceJSON.getDouble("longitude");
 
                 JSONArray historicDailySummaryJSON = historicForecastServiceJSON.getJSONObject("daily").getJSONArray("data");
+
                 for (int i = 0; i < historicDailySummaryJSON.length(); i++) {
                     JSONObject summaryHistoricForecastJSON = historicDailySummaryJSON.getJSONObject(i);
                     long historicTime = summaryHistoricForecastJSON.getLong("time");
