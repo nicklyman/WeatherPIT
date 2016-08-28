@@ -16,7 +16,8 @@
             android:value="@integer/google_play_services_version" />
         <activity
             android:name=".ui.MainActivity"
-            android:theme="@style/NoActionBarTheme">
+            android:theme="@style/NoActionBarTheme"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,16 +39,20 @@
 
 
         <activity
-            android:name=".ui.CurrentHistoricWeatherActivity">
+            android:name=".ui.CurrentHistoricWeatherActivity"
+            android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".ui.SevenDayForecastActivity">
+            android:name=".ui.SevenDayForecastActivity"
+            android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".ui.AboutAppActivity">
+            android:name=".ui.AboutAppActivity"
+            android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".ui.DailyForecastDetailActivity">
+            android:name=".ui.DailyForecastDetailActivity"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

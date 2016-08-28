@@ -79,15 +79,10 @@ public class CurrentHistoricWeatherActivity extends AppCompatActivity implements
 
         Intent intent = getIntent();
         userLocation = intent.getStringExtra("userLocation");
-        Log.v("Location: ", userLocation);
         double lat = intent.getDoubleExtra("lat", 0.0);
-        Log.v("Lat: ", String.valueOf(lat));
         double lng = intent.getDoubleExtra("lng", 0.0);
-        Log.v("lng: ", String.valueOf(lng));
         long randomYear = getRandomYear();
-        Log.v("unix: ", String.valueOf(randomYear));
         Date date = new Date(randomYear * 1000L);
-        Log.v("date: ", String.valueOf(date));
         SimpleDateFormat year = new SimpleDateFormat("yyyy");
         formattedYear = year.format(date);
 
