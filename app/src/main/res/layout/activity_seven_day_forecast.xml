@@ -21,18 +21,19 @@
         android:id="@+id/recyclerView"/>
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textSize="10sp"
         android:textStyle="bold"
-        android:textColor="@color/colorUserInputText"
+        android:textColor="@color/colorPrimaryText"
         android:text="Powered by Forecast"
         android:id="@+id/forecastLinkTextView"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginBottom="10dp"
+        android:layout_marginRight="5dp"
         android:layout_weight="0.33" />
 
 

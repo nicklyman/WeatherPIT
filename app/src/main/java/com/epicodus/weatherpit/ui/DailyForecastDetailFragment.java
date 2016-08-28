@@ -54,7 +54,7 @@ public class DailyForecastDetailFragment extends Fragment implements View.OnClic
         ButterKnife.bind(this, view);
 
 
-        mHourlySummary.setText(mForecast.getWeeklySummary());
+        mHourlySummary.setText(mForecast.getDailySummary());
         if (mForecast.getDailyIcon().equals("clear-day")){
             Picasso.with(view.getContext()).load(R.drawable.clear_day).into(mWeatherIconPlaceholder);
         } if (mForecast.getDailyIcon().equals("clear-night")){

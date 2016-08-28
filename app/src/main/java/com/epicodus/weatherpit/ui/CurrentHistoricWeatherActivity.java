@@ -1,9 +1,13 @@
 package com.epicodus.weatherpit.ui;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,6 +22,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.epicodus.weatherpit.Constants;
 import com.epicodus.weatherpit.R;
@@ -124,42 +129,54 @@ public class CurrentHistoricWeatherActivity extends AppCompatActivity implements
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 mHistoricForecasts = historicForecastService.processResults(response);
+                if(mHistoricForecasts.size() == 0) {
+                    Handler handler = new Handler(Looper.getMainLooper());
+                    handler.post(new Runnable() {
+                        public void run() {
+                            Toast.makeText(getApplicationContext(), "The historic forecast for this location is not currently available. Please try again.", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    Intent intent = new Intent(CurrentHistoricWeatherActivity.this, MainActivity.class);
+                    startActivity(intent);
+                } else {
+                    CurrentHistoricWeatherActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mLocationTextView.setText("Location: " + userLocation);
+                            mRandomYearTextView.setText("Year: " + formattedYear);
 
-                CurrentHistoricWeatherActivity.this.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mLocationTextView.setText("Location: " + userLocation);
-                        mRandomYearTextView.setText("Year: " + formattedYear);
+                            if (mHistoricForecasts.get(0).getHistoricDailyIcon().equals("clear-day")){
+                                Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.clear_day).into(mHistoricWeatherImageView);
+                            } if (mHistoricForecasts.get(0).getHistoricDailyIcon().equals("clear-night")){
+                                Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.clear_night).into(mHistoricWeatherImageView);
+                            } if(mHistoricForecasts.get(0).getHistoricDailyIcon().equals("rain")){
+                                Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.rain).into(mHistoricWeatherImageView);
+                            } if(mHistoricForecasts.get(0).getHistoricDailyIcon().equals("snow")){
+                                Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.snow).into(mHistoricWeatherImageView);
+                            } if(mHistoricForecasts.get(0).getHistoricDailyIcon().equals("sleet")){
+                                Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.sleet).into(mHistoricWeatherImageView);
+                            } if(mHistoricForecasts.get(0).getHistoricDailyIcon().equals("wind")){
+                                Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.wind).into(mHistoricWeatherImageView);
+                            } if(mHistoricForecasts.get(0).getHistoricDailyIcon().equals("fog")){
+                                Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.fog).into(mHistoricWeatherImageView);
+                            } if(mHistoricForecasts.get(0).getHistoricDailyIcon().equals("cloudy")){
+                                Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.cloudy).into(mHistoricWeatherImageView);
+                            } if(mHistoricForecasts.get(0).getHistoricDailyIcon().equals("partly-cloudy-day")){
+                                Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.partly_cloudy_day).into(mHistoricWeatherImageView);
+                            } if(mHistoricForecasts.get(0).getHistoricDailyIcon().equals("partly-cloudy-night")){
+                                Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.partly_cloudy_night).into(mHistoricWeatherImageView);
+                            } if(mHistoricForecasts.get(0).getHistoricDailyIcon().equals("")){
+                                Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.weather_clock_icon).into(mHistoricWeatherImageView);
+                            } if(mHistoricForecasts.get(0).getHistoricDailyIcon().equals(null)) {
+                                Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.weather_clock_icon).into(mHistoricWeatherImageView);
+                            }
 
-                        if (mHistoricForecasts.get(0).getHistoricDailyIcon().equals("clear-day")){
-                            Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.clear_day).into(mHistoricWeatherImageView);
-                        } if (mHistoricForecasts.get(0).getHistoricDailyIcon().equals("clear-night")){
-                            Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.clear_night).into(mHistoricWeatherImageView);
-                        } if(mHistoricForecasts.get(0).getHistoricDailyIcon().equals("rain")){
-                            Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.rain).into(mHistoricWeatherImageView);
-                        } if(mHistoricForecasts.get(0).getHistoricDailyIcon().equals("snow")){
-                            Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.snow).into(mHistoricWeatherImageView);
-                        } if(mHistoricForecasts.get(0).getHistoricDailyIcon().equals("sleet")){
-                            Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.sleet).into(mHistoricWeatherImageView);
-                        } if(mHistoricForecasts.get(0).getHistoricDailyIcon().equals("wind")){
-                            Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.wind).into(mHistoricWeatherImageView);
-                        } if(mHistoricForecasts.get(0).getHistoricDailyIcon().equals("fog")){
-                            Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.fog).into(mHistoricWeatherImageView);
-                        } if(mHistoricForecasts.get(0).getHistoricDailyIcon().equals("cloudy")){
-                            Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.cloudy).into(mHistoricWeatherImageView);
-                        } if(mHistoricForecasts.get(0).getHistoricDailyIcon().equals("partly-cloudy-day")){
-                            Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.partly_cloudy_day).into(mHistoricWeatherImageView);
-                        } if(mHistoricForecasts.get(0).getHistoricDailyIcon().equals("partly-cloudy-night")){
-                            Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.partly_cloudy_night).into(mHistoricWeatherImageView);
-                        } if(mHistoricForecasts.get(0).getHistoricDailyIcon().equals("")){
-                            Picasso.with(CurrentHistoricWeatherActivity.this).load(R.drawable.weather_clock_icon).into(mHistoricWeatherImageView);
+                            mHistoricWeatherTextView.setText("Around this time of year in " + formattedYear + ", the forecast called for:\r\n" + mHistoricForecasts.get(0).getHistoricDailySummary());
+                            mHistoricTemperatureTextView.setText("The high temperature was " + mHistoricForecasts.get(0).getHistoricDailyMaxTemp() + "°F.\r\n The low temperature was " + mHistoricForecasts.get(0).getHistoricDailyMinTemp() + "°F.");
                         }
 
-                        mHistoricWeatherTextView.setText("Around this time of year in " + formattedYear + ", the forecast called for:\r\n" + mHistoricForecasts.get(0).getHistoricDailySummary());
-                        mHistoricTemperatureTextView.setText("The high temperature was " + mHistoricForecasts.get(0).getHistoricDailyMaxTemp() + "°F.\r\n The low temperature was " + mHistoricForecasts.get(0).getHistoricDailyMinTemp() + "°F.");
-                    }
-
-                });
+                    });
+                }
             }
         });
     }
