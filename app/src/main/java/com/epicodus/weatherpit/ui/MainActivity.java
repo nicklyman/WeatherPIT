@@ -38,7 +38,6 @@ import okhttp3.Response;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
     @Bind(R.id.getWeatherButton) Button mGetWeatherButton;
     @Bind(R.id.aboutAppButton) Button mAboutAppButton;
     @Bind(R.id.locationEditTextView) EditText mLocationEditTextView;
@@ -115,7 +114,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
             }
         }
-
         if(view == mAboutAppButton) {
             Intent intent = new Intent(MainActivity.this, AboutAppActivity.class);
             startActivity(intent);
