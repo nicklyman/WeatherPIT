@@ -6,7 +6,7 @@
 
 ## Description
 
-Weather P.I.T. (Point In Time) is a mobile application allows the user to enter a location (i.e. city and state) and view the historic forecast, followed by the current forecast. The year for the historic forecast is randomly generated so the user will see a different forecast for the city they have chosen each time they  use the application. The user is also able to see the seven day forecast and, by selecting a specific day from the weekly view, see detailed daily information for the city they chose.
+Weather P.I.T. (Point In Time) is a mobile application that allows the user to enter a location (i.e. city and state) and view the historic forecast, followed by the current forecast. The year for the historic forecast is randomly generated so the user will see a different forecast for the city they have chosen each time they  use the application. The user is also able to see the seven day forecast and, by selecting a specific day from the weekly view, see detailed daily information for the city they chose.
 
 ## Prerequisites
 
