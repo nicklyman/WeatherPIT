@@ -106,7 +106,7 @@ public class CurrentHistoricWeatherActivity extends AppCompatActivity implements
         }
         if (view == mAPILink) {
             Intent webIntent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("http://forecast.io/"));
+                    Uri.parse("https://darksky.net/poweredby/"));
             startActivity(webIntent);
         }
     }

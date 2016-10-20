@@ -34,6 +34,8 @@ public class HistoricForecastService {
         String url = Constants.BaseURL + Constants.Key + "/" + lat + "," + lng + "," + randomYear;
         // Working example: https://api.forecast.io/forecast/4d67d511c3eed2b7be581fc31fe32cf9/37.8267,-122.423,1468556360
 
+        //[YYYY]-[MM]-[DD]T[HH]:[MM]:[SS][timezone]. timezone should either be omitted (to refer to local time for the location being requested), Z (referring to GMT time), or +[HH][MM] or -[HH][MM] for an offset from GMT in hours and minutes. The timezone is only used for determining the time of the request; the response will always be relative to the local time zone.
+
         Request request = new Request.Builder()
                 .url(url)
                 .build();
