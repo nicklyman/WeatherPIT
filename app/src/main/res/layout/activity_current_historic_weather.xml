@@ -98,7 +98,7 @@
         android:textSize="10sp"
         android:textStyle="bold"
         android:textColor="@color/colorUserInputText"
-        android:text="Powered by Forecast"
+        android:text="Powered by Dark Sky"
         android:id="@+id/forecastLinkTextView"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
